@@ -91,3 +91,14 @@ def simulador_bingo():
             if all(numero in numeros_sorteados for linha in cartela for numero in linha):
                 print(f"Jogador {jogador} ganhou!")
                 cartelas.pop(jogador)
+
+        # Verificar se todos os jogadores ganharam
+        if not cartelas:
+            print("Fim do jogo!")
+            break
+
+        # Esperar o usuário pressionar Enter para continuar
+        input("Pressione Enter para continuar...")
+
+# Iniciar o simulador de bingo
+simulador_bingo()
