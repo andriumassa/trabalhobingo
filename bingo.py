@@ -51,3 +51,27 @@ def sortear_numero(numeros_sorteados, intervalo):
         if numero not in numeros_sorteados:
             numeros_sorteados.add(numero)
             return numero
+
+# Função principal para o simulador
+def simulador_bingo():
+    print("Escolha o modo de jogo:")
+    print("1. Modo rápido")
+    print("2. Modo demorado")
+    modo = int(input("Digite o número correspondente ao modo escolhido: "))
+    
+    if modo == 1:
+        mododejogo = "rápido"
+        jogadores = ["Jogador 1", "Jogador 2"]
+        num_cartelas = 2
+        intervalo_sorteio = (1, 30)
+    else:
+        mododejogo = "demorado"
+        jogadores = ["Jogador 1", "Jogador 2", "Jogador 3", "Jogador 4"]
+        num_cartelas = 4
+        intervalo_sorteio = (1, 40)
+
+    # Gerar cartelas
+    cartelas = {jogador: gerar_cartela(mododejogo) for jogador in jogadores}
+
+    # Conjunto para armazenar os números sorteados
+    numeros_sorteados = set()
