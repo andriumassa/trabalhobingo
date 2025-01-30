@@ -75,3 +75,9 @@ def simulador_bingo():
 
     # Conjunto para armazenar os números sorteados
     numeros_sorteados = set()
+
+    while True:
+        # Sortear um número
+        numero_sorteado = sortear_numero(numeros_sorteados, intervalo_sorteio)
+        print(f"Número sorteado: {numero_sorteado}")
+        print("Dezenas sorteadas até o momento:", sorted(numeros_sorteados))
