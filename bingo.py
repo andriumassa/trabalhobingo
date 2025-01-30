@@ -31,4 +31,23 @@ def gerar_cartela(mododejogo):
         ]
     return cartela
 
+# Função para exibir a cartela
+def exibir_cartela(nome, cartela, numeros_sorteados):
+    print(f"Cartela do jogador {nome}:")
+    for linha in cartela:
+        linha_display = []
+        for numero in linha:
+            if numero in numeros_sorteados:
+                linha_display.append(f"[{numero}]")
+            else:
+                linha_display.append(f" {numero} ")
+        print(" | ".join(linha_display))
+    print()
 
+# Função para sorteio de números
+def sortear_numero(numeros_sorteados, intervalo):
+    while True:
+        numero = random.randint(intervalo[0], intervalo[1])
+        if numero not in numeros_sorteados:
+            numeros_sorteados.add(numero)
+            return numero
