@@ -81,3 +81,13 @@ def simulador_bingo():
         numero_sorteado = sortear_numero(numeros_sorteados, intervalo_sorteio)
         print(f"Número sorteado: {numero_sorteado}")
         print("Dezenas sorteadas até o momento:", sorted(numeros_sorteados))
+
+        # Exibir as cartelas
+        for jogador, cartela in cartelas.items():
+            exibir_cartela(jogador, cartela, numeros_sorteados)
+
+        # Verificar se algum jogador completou a cartela
+        for jogador, cartela in cartelas.items():
+            if all(numero in numeros_sorteados for linha in cartela for numero in linha):
+                print(f"Jogador {jogador} ganhou!")
+                cartelas.pop(jogador)
